@@ -56,3 +56,10 @@ body {
   line-height: 1;
   text-align: center;
 }
+
+.top_section_title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
