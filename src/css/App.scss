@@ -1,0 +1,198 @@
+@charset 'utf-8';
+
+//-------------------------------------------
+//
+//
+//              テーマ
+//
+//
+//-------------------------------------------
+$main_color: #194098;
+
+
+@mixin MX ($MXgpwidth: auto, $MXgpheight: auto, $gpwidth: 100%, $gpheight: auto, $gpmargin: 0 auto) {
+    max-width: $MXgpwidth;
+    max-height: $MXgpheight;
+    width: $gpwidth;
+    height: $gpheight;
+    margin: $gpmargin;
+}
+
+@mixin FLEX($FLEXalign: center, $FLEXwrap: wrap, $FLEXdisplay: flex) {
+    justify-content: $FLEXalign;
+    flex-wrap: $FLEXwrap;
+    display: $FLEXdisplay;
+}
+
+
+
+//-------------------------------------------
+//
+//
+//              ベース
+//
+//
+//-------------------------------------------
+
+*,*::before,*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background: $main_color;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+//-------------------------------------------
+//
+//
+//              レイアウト
+//
+//
+//-------------------------------------------
+
+#wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.l-header {
+  position: relative;
+}
+
+.l-main {
+    
+}
+
+.l-footer {
+    
+}
+
+.l-section {
+    
+}
+
+.l-aside {
+    
+}
+
+.flex-container {
+    @include FLEX();
+}
+
+//-------------------------------------------
+//
+//
+//              モジュール
+//
+//
+//-------------------------------------------
+
+.top_icon img {
+  width: 100%;
+  max-width: 50px;
+}
+
+.top_icon {
+  width: 123px;
+  height: 123px;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+  padding: 30px 0 0 8px;
+  position: absolute;
+  left: calc(50% - 61.5px);
+  z-index: 10;
+}
+
+.bord_container {
+  max-width: 1130px;
+  margin: 15px auto 0;
+  position: relative;
+  z-index: 1;
+  height: 67px;
+  overflow: hidden;
+  padding: 0 2px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+}
+
+.bord_item {
+  width: 150px;
+  padding: 25px 0;
+  transform: perspective(150px);
+  color: #0f499d;
+  line-height: 1;
+  text-align: center;
+    
+    a {
+        text-decoration: none;
+        color: $main_color;
+        font-size: 1.2rem;
+    }
+    
+    &:nth-of-type(4) {
+        margin-right: 258px;
+    }
+}
+
+.top_section_title {
+    color: #fff;
+    font: {
+        weight: bold;
+        size: 3rem;    
+    }
+    text-align: center;
+}
+
+.top_section_title {
+    font: {
+        weight: 400;
+        size: 14rem;
+        style: normal;
+        family: fatfrank, sans-serif;
+    }
+    margin-top: 180px;
+}
+
+.l-section_top {
+//    position: relative;
+//    
+//    &::before {
+//        content: "";
+//        display: block;
+//        height: 137px;
+//        background: {
+//            image: url("../images/top/svg/top_wave.svg");
+//            repeat: repeat-x;
+//        }
+//        position: absolute;
+//        width: 100%;
+//        top: 40px;
+//        animation: top_back_wave 15s infinite linear;
+//    }
+}
+
+@keyframes top_back_wave {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+//-------------------------------------------
+//
+//
+//              ステート
+//
+//
+//-------------------------------------------

@@ -5,9 +5,9 @@ import '../css/App.css';
 
 const Contents: React.FC = () => {
     return (
-        <main id="main">
-            <div className="Sections">
-                <TopSection msg="BREEZEGROUP" />
+        <main className="main">
+            <div className="sections">
+                <TopSection />
             </div>
         </main>
     )
