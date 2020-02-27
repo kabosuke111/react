@@ -29,7 +29,18 @@ const Header = () => {
       'リンク'
     ]
 
-    console.log(anims.bools);
+    //メニューバーのリンク
+    const menu_link = [
+      'wrapper',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      'footer',
+
+    ]
     //トレールアニメーションのスタイル
     const trail_anim = useTrail(menu_bar.length, {
       config: config.gentle,
@@ -52,7 +63,7 @@ const Header = () => {
     //リターン
     return (
       //map関数により順番に要素をセット
-      <header className="header">
+      <header id="header" className="l-header">
         <animated.h1 className="top_icon" style={icon_spring} onClick={()=>animsAct(
           !anims.bools ? {...anims, A_top:0, A_rotate:0, A_width:100, A_Big: 1.2, A_opacity: 1, bools: !anims.bools} : {
           ...anims, A_top:100, A_rotate: 180, A_width: 0, A_Big: 1, A_opacity: 0, bools: !anims.bools})}>
@@ -62,8 +73,8 @@ const Header = () => {
         <nav>
           <animated.ul className="bord_container" style={spring_anim}>
             {trail_anim.map((value, index) => (
-              <animated.li  className="bord_item" style={{...value, listStyle: "none"}} >
-                <AnchorLink href="#footer">{menu_bar[index]}</AnchorLink>
+              <animated.li className="bord_item" style={{...value, listStyle: "none"}} >
+                <AnchorLink href={`#${menu_link[index]}`}>{menu_bar[index]}</AnchorLink>
               </animated.li>)
             )}
           </animated.ul>
