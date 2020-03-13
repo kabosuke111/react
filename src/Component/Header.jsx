@@ -51,7 +51,6 @@ const Header = () => {
   
     //スプリングアニメーションのセット
     const spring_anim = useSpring({
-      config: config.gentle,
       width: `${anims.A_width}%`
     });
   
