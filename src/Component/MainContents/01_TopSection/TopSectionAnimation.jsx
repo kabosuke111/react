@@ -29,8 +29,6 @@ const TopSectionAnimation = () => {
         opacity: tops.A_opac,
         delay: tops.RS_delay_first,
     });
-
-    let event_bool = true;
     
     window.addEventListener('load', () => {
         topAct({

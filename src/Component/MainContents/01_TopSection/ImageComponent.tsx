@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../../css/App.css';
 import image01 from '../../../images/top/sample01.jpg';
 import image02 from '../../../images/top/sample02.jpg';
 import image03 from '../../../images/top/sample03.jpg';
+import {useSpring, useTrail, animated, config} from 'react-spring';
 
 interface Props {
     offset_Y: number;
-    
 }
 
 const ImageComponent: React.FC<Props> = (props) => {
+
 
     const image_sources: any = {
         first: image01,
@@ -25,7 +26,9 @@ const ImageComponent: React.FC<Props> = (props) => {
 
     return (
       <div className="l-middle_images">
-          {source_url.map((value) => (<img src={value} alt="" className="middle_images-item" />))}
+            {source_url.map((value) => (<div className="middle_images-item_box">
+              <img src={value} alt="" className="middle_images-item" />
+            </div>))}
       </div>
     );
 }

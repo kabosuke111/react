@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Main: React.FC<Props> = (props) => {
-    
     return (
         <main className="main">
             <TopSection />

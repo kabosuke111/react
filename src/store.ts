@@ -1,50 +1,19 @@
-import {createStore} from 'redux';
-import React, { useState, useRef } from "react";
-import {reducerWithInitialState} from 'typescript-fsa-reducers';
+import {combineReducers,applyMiddleware,compose,createStore} from 'redux';
+import { actionCreatorFactory } from '../node_modules/typescript-fsa';
+import {Reducer, State} from './reducer';
+import thunk from "redux-thunk";
 
-export type appState = {
-    bools: boolean;
-    A_top: number;
-    A_bord: number;
-    A_rotate: number;
-    A_width: number;
-    RS_delay_first: number;
-    A_Big: number;
+export type AppState = {
+    state: State;
 }
 
-const initState: appState = {
-    bools: false,
-    A_top: 100,
-    A_bord: 0,
-    A_rotate: 180,
-    A_width: 0,
-    RS_delay_first: 200,
-    A_Big: 1,
-}
+const storeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const reducers = (state: appState = initState, action: { type: string; }) => {
-    switch(action.type) {
-        case 'NAV_OPEN': 
-            return {...state, A_top:0, A_rotate:0, A_width:100, A_Big: 1.2, bools: !state.bools};
-        case 'NAV_CLOSED':
-            return {...state, A_top:100, A_rotate: 180, A_width: 0, A_Big: 1, bools: !state.bools};
-        default:
-            return state;
-    }
-}
-
-export const disp_open = (action: string) => {
-    return {
-        type: 'NAV_OPEN',
-    }
-}
-
-export const disp_close = (action: string) => {
-    return {
-        type: 'NAV_CLOSED',
-    }
-}
-
-const store = createStore(reducers);
+const store = createStore(
+    combineReducers<AppState>({
+      state: Reducer
+    }),
+    storeEnhancers(applyMiddleware(thunk))
+)
 
 export default store;
